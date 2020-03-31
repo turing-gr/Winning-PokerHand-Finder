@@ -68,6 +68,7 @@ public class PokerHand implements Comparable<PokerHand> {
     	
     	
     	//METHOD 2 WHERE WE HAVE TO SHOW WHAT TYPE OF WIN IS WE CAN USE THE ALGORITHM BELOW AND THE ADDITIONAL METHODS
+		//REMOVE THE /* TO TEST THE 2ND METHOD AND PUT IN COMMENTS THE 1ST METHOD
     	/*int end = arrayOfCards.length - 1;
     	String s1 = String.valueOf(indices[0]);
     	String s2 = String.valueOf(indices[1]);
@@ -150,7 +151,6 @@ public class PokerHand implements Comparable<PokerHand> {
     }
     private void calcPairs(PokerHand other,int player) {
     	//Check for pairs because sum doesnt win when we have 2 pairs VS 1 pair
-    	int pair=1;
     	for(int i=0; i<aux.length; i++) {
     		int counter=0;
 	    	for(int j=0; j<other.arrayOfCards.length; j++) {
@@ -236,7 +236,7 @@ public class PokerHand implements Comparable<PokerHand> {
 			return true;
 		}
 		else return false;		
-    }   
+    } 
    
     private boolean isFlush() {
     	//Count how many symbols are equal e.g. if the hand is TS-JS-QS-KS-AS then counter = 5;
