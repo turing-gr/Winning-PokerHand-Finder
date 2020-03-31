@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 public class PokerHand implements Comparable<PokerHand> {
 
 	private String[] arrayOfCards;
-	private static char[] indices = new char[2];
+	private static char[] indices = new char[2]; 
 	private char[] aux = new char[] {'2','3','4','5','6','7','8','9','T','J','Q','K','A'};
 	@SuppressWarnings("unused")
 	private char temp_char_1,temp_char_2;
