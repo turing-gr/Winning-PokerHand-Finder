@@ -1,6 +1,8 @@
 package test.java.com.clarusone.poker;
 
-import static com.clarusone.poker.HandResult.*;
+import static com.clarusone.poker.HandResult.LOSS;
+import static com.clarusone.poker.HandResult.TIE;
+import static com.clarusone.poker.HandResult.WIN;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -106,12 +108,15 @@ public class PokerHandTests {
     }
 
     public PokerHandTests() {
-        PokerHand.initializeRankedMap();
+    	PokerHand.initializeRankedMap();
+        //PokerHandSecond.initializeRankedMap();
     }
     
     private void compareHands(HandResult expectedResult, String playerHand, String opponentHand) {
-        PokerHand player = new PokerHand(playerHand);
-        PokerHand opponent = new PokerHand(opponentHand);
+    	PokerHand player = new PokerHand(playerHand);
+        PokerHand opponent = new PokerHand(opponentHand);    	
+    	//PokerHandSecond player = new PokerHandSecond(playerHand);
+        //PokerHandSecond opponent = new PokerHandSecond(opponentHand);
         int actualResult = player.compareTo(opponent);
         assertEquals(expectedResult.comparatorValue, actualResult);
     }
