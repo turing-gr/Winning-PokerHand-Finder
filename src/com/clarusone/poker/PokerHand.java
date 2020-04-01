@@ -30,13 +30,18 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand that) {
+    	//Sort the hands (arrays)
     	Arrays.sort(this.arrayOfCards);
-    	Arrays.sort(that.arrayOfCards); 
-    	
+    	Arrays.sort(that.arrayOfCards);   	
     	//METHOD 1 WHERE WE DONT HAVE TO SHOW WHAT TYPE OF WIN IS  
+    	
+    	//Look if we have pairs
     	calcPairs(this,0);
     	calcPairs(that,1);
     	int sum=0,sum2=0;
+    	
+    	//Sum helps with finding out if one hand is greater than other, that means that 2S+5S+10S+KS+QS > 2S+4S+10S+KS+QS
+    	//according to ranked map of symbols (data structure)
     	for(int i=0; i<this.arrayOfCards.length; i++) {
     		sum += rankedSymbols.get(String.valueOf(this.arrayOfCards[i].charAt(0)));
     	}
@@ -47,15 +52,20 @@ public class PokerHand implements Comparable<PokerHand> {
 			return 1;
 		}
 		else if(sum > sum2 && pairs[0]<pairs[1]  && pairs[1]==2 && (pairs[0]==1 || pairs[0]==0)) return -1;
-		else if(sum>sum2) {
-    		if(that.isStraight()) {
+		else if(sum>sum2) {			
+			//if the other hand is straight
+    		if(that.isStraight()) {  			
+    			//and if this hand is flush
     			if(this.isFlush()) return 1;   			
     			else return -1;   			
     		}
     		else return 1;
     	}
     	else if(sum<sum2) {
-    		if(this.isStraight()) {
+   		
+			//if this hand is straight
+    		if(this.isStraight()) {    			
+    			//if the other hand is flush
     			if(that.isFlush()) return -1;    			
     			else return 1;  			
     		}
