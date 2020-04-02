@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class PokerHandSecond implements Comparable<PokerHandSecond> {
+public class PokerHandSecondMethod implements Comparable<PokerHandSecondMethod> {
 
 	private String[] arrayOfCards;
 	private static char[] indices = new char[2]; 
@@ -15,7 +15,7 @@ public class PokerHandSecond implements Comparable<PokerHandSecond> {
 	//Holds all symbols in ascending rank -> ["2", 2], ..... , ["Q", 12],["K", 13],["A", 14]
 	private static HashMap<String, Integer> rankedSymbols  = new HashMap<String, Integer>();
 
-	public PokerHandSecond(String fiveCards) {
+	public PokerHandSecondMethod(String fiveCards) {
 		//Insert cards of player in array by splitting with spaces
 		arrayOfCards = fiveCards.split(" ");
     }
@@ -30,11 +30,10 @@ public class PokerHandSecond implements Comparable<PokerHandSecond> {
 	}
 
     @Override
-    public int compareTo(PokerHandSecond that) {
+    public int compareTo(PokerHandSecondMethod that) {
     	Arrays.sort(this.arrayOfCards);
     	Arrays.sort(that.arrayOfCards); 
     	//METHOD 2 WHERE WE HAVE TO SHOW WHAT TYPE OF WIN IS WE CAN USE THE ALGORITHM BELOW AND THE ADDITIONAL METHODS
-		//REMOVE THE /* TO TEST THE 2ND METHOD AND PUT IN COMMENTS THE 1ST METHOD
     	int end = arrayOfCards.length - 1;
     	String s1 = String.valueOf(indices[0]);
     	String s2 = String.valueOf(indices[1]);
@@ -117,7 +116,7 @@ public class PokerHandSecond implements Comparable<PokerHandSecond> {
     }
 
 	
-    private boolean isEqualToOther(PokerHandSecond that,int matches) {
+    private boolean isEqualToOther(PokerHandSecondMethod that,int matches) {
 		int counter = 0,counter2 = 0;
 		for(int i=0; i<arrayOfCards.length-1; i++) {
 			if(arrayOfCards[i].charAt(0)==arrayOfCards[i+1].charAt(0)) {
@@ -245,7 +244,7 @@ public class PokerHandSecond implements Comparable<PokerHandSecond> {
     	else return false;
     }
 
-    private void findCharsWhereDontMatch(PokerHandSecond that) {
+    private void findCharsWhereDontMatch(PokerHandSecondMethod that) {
     	outerloop:
     	for(int i=0; i<arrayOfCards.length; i++) {
         	for(int j=0; j<arrayOfCards.length; j++) {
@@ -258,7 +257,7 @@ public class PokerHandSecond implements Comparable<PokerHandSecond> {
     	}
 	}
 
-    private String getStringOf(PokerHandSecond other,int index) {
+    private String getStringOf(PokerHandSecondMethod other,int index) {
     	return String.valueOf(other.arrayOfCards[index].charAt(0));
     }
     

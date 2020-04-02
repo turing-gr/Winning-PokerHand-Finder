@@ -115,8 +115,8 @@ public class PokerHandTests {
     private void compareHands(HandResult expectedResult, String playerHand, String opponentHand) {
     	PokerHand player = new PokerHand(playerHand);
         PokerHand opponent = new PokerHand(opponentHand);    	
-    	//PokerHandSecond player = new PokerHandSecond(playerHand);
-        //PokerHandSecond opponent = new PokerHandSecond(opponentHand);
+    	//PokerHandSecondMethod player = new PokerHandSecondMethod(playerHand);
+        //PokerHandSecondMethod opponent = new PokerHandSecondMethod(opponentHand);
         int actualResult = player.compareTo(opponent);
         assertEquals(expectedResult.comparatorValue, actualResult);
     }

@@ -16,6 +16,7 @@ public class PokerHand implements Comparable<PokerHand> {
 
 	public PokerHand(String fiveCards) {
 		//Insert cards of player in array by splitting with spaces
+		//So the "2S 3S 5S AS QS" -> [2S 3S 5S AS QS]
 		arrayOfCards = fiveCards.split(" ");
     }
 	
@@ -30,7 +31,7 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand that) {
-    	//Sort the hands (arrays)
+    	//Sort the hands (arrayOfCards) for each player
     	Arrays.sort(this.arrayOfCards);
     	Arrays.sort(that.arrayOfCards);   	
     	//METHOD 1 WHERE WE DONT HAVE TO SHOW WHAT TYPE OF WIN IS  
@@ -102,6 +103,7 @@ public class PokerHand implements Comparable<PokerHand> {
     	for(int i=0; i<arrayOfCards.length; i++) {
         	for(int j=0; j<aux.length; j++) {	
 	    		if(arrayOfCards[i].charAt(0) == aux[j]) {
+	    			//Set start as the index from where to start counting
 	    			start = j;
 	    			break outerloop;
 	    		}
@@ -118,6 +120,7 @@ public class PokerHand implements Comparable<PokerHand> {
     	else return false;
     }   
     
+    //Get the key from a specific value from hashmap
     public <K, V> K getKey(Map<K, V> map, V value) {
         for (Entry<K, V> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {
